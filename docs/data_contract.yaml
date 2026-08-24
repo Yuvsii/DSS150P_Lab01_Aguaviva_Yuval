@@ -1,0 +1,44 @@
+# Selected Source: customers.csv
+# Reason: Suitable for a basic contract because it has a clean tabular structure, consistent headers, and identifiable customer entities.
+dataset_name: customers
+version: 1.0
+owner: unknown - requires confirmation
+source_type: file
+source_format: csv
+acquisition_method: batch file drop into data/raw/
+expected_update_pattern: batch
+primary_key: customer_id
+
+schema:
+  - name: customer_id
+    type: string
+    nullable: false
+    description: Unique identifier for each customer.
+  - name: first_name
+    type: string
+    nullable: false
+    description: Customer's given name.
+  - name: last_name
+    type: string
+    nullable: false
+    description: Customer's family name.
+  - name: email
+    type: string
+    nullable: true
+    description: Customer electronic mail address.
+  - name: city
+    type: string
+    nullable: true
+    description: City of residence.
+
+quality_rules:
+  - customer_id must not be null
+  - customer_id must be unique
+  - first_name must not be null
+  - last_name must not be null
+
+freshness_expectation: unknown - requires confirmation
+duplicate_policy: quarantine
+schema_evolution_policy: reject-on-schema-drift
+consumer: fictional analytics team
+notes: Missing emails or cities are permitted based on initial profile observations.
