@@ -7,8 +7,8 @@ load_dotenv()
 
 DB_CONFIG = {
     "host": os.getenv("DB_HOST", "localhost"),
-    "port": int(os.getenv("DB_PORT", "5432")),
-    "dbname": os.getenv("DB_NAME", "dss150p"),
+    "port": int(os.getenv("DB_PORT", "5433")),
+    "dbname": os.getenv("DB_NAME", "dss150p_lab"),
     "user": os.getenv("DB_USER", "dss150p"),
-    "password": os.getenv("DB_PASSWORD", "dss150p"),
+    "password": os.getenv("DB_PASSWORD", "dss150p_lab"),
 }
